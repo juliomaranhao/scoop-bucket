@@ -4,14 +4,14 @@ Windows Registry Editor Version 5.00
 @="&Emacs: Edit in existing frame"
 "icon"="$dir\\bin\\emacsclientw.exe"
 
-[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\EmacsNewFrame\command]
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\EmacsSameFrame\command]
 @="$dir\\bin\\emacsclientw.exe -n \"%1\""
 
-[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Emacs2]
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\EmacsNewFrame]
 @="&Emacs: Edit in new frame"
 "icon"="$dir\\bin\\emacsclientw.exe"
 
-[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Emacs2\command]
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\EmacsNewFrame\command]
 @="$dir\\bin\\emacsclientw.exe -c -n \"%1\""
 
 [HKEY_CURRENT_USER\SOFTWARE\Classes\DesktopBackground\shell\EmacsDired]
