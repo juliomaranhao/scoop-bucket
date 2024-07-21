@@ -19,9 +19,7 @@
         "reg.exe import \"$dir\\install-emacs.reg\""
     ],
     "pre_uninstall": [
-        "'install-emacs.reg', 'uninstall-emacs.reg' | ForEach-Object {",
-        "    Remove-Item \"$dir\\$_\"",
-        "}"
+        "reg.exe import \"$dir\\uninstall-emacs.reg\""
     ],
     "bin": [
         "bin\\runemacs.exe",
