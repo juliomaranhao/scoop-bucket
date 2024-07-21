@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\EmacsSameFrame]
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\EmacsNewFrame]
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\DesktopBackground\shell\EmacsDired]
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\Background\shell\EmacsDired]
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\EmacsDired]
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\Drive\Background\shell\EmacsDired]
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\Drive\shell\EmacsDired]

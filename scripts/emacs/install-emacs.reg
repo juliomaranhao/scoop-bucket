@@ -1,0 +1,50 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\EmacsSameFrame]
+@="&Emacs: Edit in existing frame"
+"icon"="$dir\\bin\\emacsclientw.exe"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\EmacsNewFrame\command]
+@="$dir\\bin\\emacsclientw.exe -n \"%1\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Emacs2]
+@="&Emacs: Edit in new frame"
+"icon"="$dir\\bin\\emacsclientw.exe"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\Emacs2\command]
+@="$dir\\bin\\emacsclientw.exe -c -n \"%1\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\DesktopBackground\shell\EmacsDired]
+@="&Emacs: Open in dired"
+"icon"="$dir\\bin\\emacsclientw.exe"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\DesktopBackground\shell\EmacsDired\command]
+@="$dir\\bin\\emacsclientw.exe -n \"%v\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\Background\shell\EmacsDired]
+@="&Emacs: Open in dired"
+"icon"="$dir\\bin\\emacsclientw.exe"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\Background\shell\EmacsDired\command]
+@="$dir\\bin\\emacsclientw.exe -n \"%V\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\EmacsDired]
+@="&Emacs: Open in dired"
+"icon"="$dir\\bin\\emacsclientw.exe"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\EmacsDired\command]
+@="$dir\\bin\\emacsclientw.exe -n \"%V\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Drive\Background\shell\EmacsDired]
+@="&Emacs: Open in dired"
+"icon"="$dir\\bin\\emacsclientw.exe"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Drive\Background\shell\EmacsDired\command]
+@="$dir\\bin\\emacsclientw.exe -n \"%L\""
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Drive\shell\EmacsDired]
+@="&Emacs: Open in dired"
+"icon"="$dir\\bin\\emacsclientw.exe"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Drive\shell\EmacsDired\command]
+@="$dir\\bin\\emacsclientw.exe -n \"%L\""
