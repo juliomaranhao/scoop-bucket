@@ -16,12 +16,12 @@
         "    $content = $content.Replace('$dir', $dir)",
         "    Set-Content \"$dir\\$_\" $content -Encoding Ascii",
         "}"
-    ],    
+    ],
     "pre_uninstall": [
         "'install-emacs.reg', 'uninstall-emacs.reg' | ForEach-Object {",
         "    Remove-Item \"$dir\\$_\"",
         "}"
-    ],    
+    ],
     "bin": [
         "bin\\runemacs.exe",
         "bin\\emacs.exe",
