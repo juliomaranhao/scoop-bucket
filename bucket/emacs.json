@@ -15,7 +15,8 @@
         "$content = Get-Content \"$bucketsdir\\julio\\scripts\\emacs\\install-emacs.reg\"",
         "$content = $content.Replace('$dir', $dir_escaped)",
         "Set-Content -Path \"$dir\\install-emacs.reg\" -Value $content -Encoding Ascii",
-        "Copy-Item -Path \"$bucketsdir\\julio\\scripts\\emacs\\uninstall-emacs.reg\" -Destination \"$dir\""
+        "Copy-Item -Path \"$bucketsdir\\julio\\scripts\\emacs\\uninstall-emacs.reg\" -Destination \"$dir\"",
+        "reg.exe import \"$dir\\install-emacs.reg\""
     ],
     "pre_uninstall": [
         "'install-emacs.reg', 'uninstall-emacs.reg' | ForEach-Object {",
