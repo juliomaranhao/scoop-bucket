@@ -10,34 +10,23 @@
             "hash": "a4573b62c2b7089d319c0c461d0ed61a597b81ead972c97033ffc0936137e0e0"
         }
     },
-    "pre_install": [
-        "$py_root = \"$dir\".Replace('\\', '\\\\')",
-        "$py_archLabel = '64-bit'",
-        "$bit = '64'",
-        "if ($architecture -eq '32bit') {",
-        "    $py_archLabel = '32-bit'",
-        "    $bit = '32'",
-        "}",
-        "if ($architecture -eq 'arm64') { $py_archLabel = 'ARM64' }",
+    "post_install": [
         "'install-emacs.reg', 'uninstall-emacs.reg' | ForEach-Object {",
-        "    $py_version = ($version -split '\\.')[0..1] -join '.'",
         "    $content = Get-Content \"$bucketsdir\\julio\\scripts\\emacs\\$_\"",
-        "    $content = $content.Replace('$py_root', $py_root)",
-        "    $content = $content.Replace('$py_version', $py_version)",
-        "    $content = $content.Replace('$py_fullversion', $version)",
-        "    $content = $content.Replace('$py_cleanVersion', $version -replace '\\.')",
-        "    $content = $content.Replace('$py_archLabel', $py_archLabel)",
-        "    $content = $content.Replace('$py_arch', \"$bit\")",
-        "    if ($global) {",
-        "       $content = $content.Replace('HKEY_CURRENT_USER', 'HKEY_LOCAL_MACHINE')",
-        "    }",
+        "    $content = $content.Replace('$dir', $dir)",
         "    Set-Content \"$dir\\$_\" $content -Encoding Ascii",
+        "}"
+    ],    
+    "pre_uninstall": [
+        "'install-emacs.reg', 'uninstall-emacs.reg' | ForEach-Object {",
+        "    Remove-Item \"$dir\\$_\"",
         "}"
     ],    
     "bin": [
         "bin\\runemacs.exe",
         "bin\\emacs.exe",
         "bin\\emacsclientw.exe",
+        "bin\\emacsclient.exe",
         "bin\\etags.exe",
         "bin\\ctags.exe"
     ],
@@ -49,7 +38,7 @@
         [
             "bin\\emacsclientw.exe",
             "Emacs Client",
-            "-c -n -a \"\""
+            "-c -n"
         ]
     ],
     "checkver": "Emacs ([\\d.]+)",
