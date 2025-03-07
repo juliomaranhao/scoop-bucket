@@ -9,7 +9,7 @@
     "uninstaller": {
         "script": "if (Test-Path \"$dir\\KeePass.config.xml\") { Copy-Item \"$dir\\KeePass.config.xml\" \"$persist_dir\" -Force }"
     },
-	"bin": "KeePass.exe",
+    "bin": "KeePass.exe",
     "shortcuts": [
         [
             "KeePass.exe",
