@@ -16,24 +16,24 @@
         "    Out-File -InputObject $content -FilePath \"$dir\\KeePass.config.xml\"",
         "}",
         "if (Test-Path \"$persist_dir\\KeePass.config.xml\") {",
-        "    $config = New-Object System.Xml.XmlDocument
-$config.Load("a.xml")
-$node = $config.SelectSingleNode("//UseTransactedConfigWrites")
-if ($node) {
-    $node.InnerText = "false"
-} else {
-    $node = $config.SelectSingleNode("//FileOpening")
-    $newnode = $config.CreateElement("UseTransactedConfigWrites")
-    $newnode.InnerText = "false"
-    $node.ParentNode.InsertAfter($newnode, $node) | Out-Null
-}
-$settings = New-Object System.Xml.XmlWriterSettings
-$settings.Indent = $true
-$settings.IndentChars = "`t"
-$settings.Encoding = New-Object System.Text.UTF8Encoding($false)
-$writer = [System.Xml.XmlWriter]::Create("a.xml", $settings)
-$config.Save($writer)
-$writer.Dispose()",
+        "    $keepass_config = New-Object System.Xml.XmlDocument",
+        "    $config.Load(\"$persist_dir\\KeePass.config.xml\")",
+        "    $node = $config.SelectSingleNode(\"//UseTransactedConfigWrites\")",
+        "    if ($node) {",
+        "        $node.InnerText = \"false\"",
+        "    } else {",
+        "        $node = $config.SelectSingleNode(\"//FileOpening\")",
+        "        $newnode = $config.CreateElement(\"UseTransactedConfigWrites\")",
+        "        $newnode.InnerText = \"false\"",
+        "        $node.ParentNode.InsertAfter($newnode, $node) | Out-Null",
+        "    }",
+        "    $settings = New-Object System.Xml.XmlWriterSettings",
+        "    $settings.Indent = $true",
+        "    $settings.IndentChars = \"`t\"",
+        "    $settings.Encoding = New-Object System.Text.UTF8Encoding($false)",
+        "    $writer = [System.Xml.XmlWriter]::Create(\"$persist_dir\\KeePass.config.xml\", $settings)",
+        "    $config.Save($writer)",
+        "    $writer.Dispose()",
         "}"
     ],
     "bin": "KeePass.exe",
