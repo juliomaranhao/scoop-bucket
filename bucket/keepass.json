@@ -5,10 +5,6 @@
     "license": "GPL-2.0-or-later",
     "url": "https://downloads.sourceforge.net/project/keepass/KeePass%202.x/2.58/KeePass-2.58.zip",
     "hash": "sha1:5ed611196f0a97c176f7aa3c145d4d64b766749b",
-    "pre_install": "if (Test-Path \"$persist_dir\\KeePass.config.xml\") { Copy-Item \"$persist_dir\\KeePass.config.xml\" \"$dir\" }",
-    "uninstaller": {
-        "script": "if (Test-Path \"$dir\\KeePass.config.xml\") { Copy-Item \"$dir\\KeePass.config.xml\" \"$persist_dir\" -Force }"
-    },
     "bin": "KeePass.exe",
     "shortcuts": [
         [
@@ -17,6 +13,7 @@
         ]
     ],
     "persist": [
+        "KeePass.config.xml"
         "Plugins",
         "Languages"
     ],
