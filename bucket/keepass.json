@@ -13,7 +13,6 @@
         ]
     ],
     "persist": [
-        "KeePass.config.xml",
         "Plugins",
         "Languages"
     ],
