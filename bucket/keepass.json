@@ -7,7 +7,33 @@
     "hash": "sha1:5ed611196f0a97c176f7aa3c145d4d64b766749b",
     "pre_install": [
         "if (!(Test-Path \"$dir\\KeePass.config.xml\")) {",
-        "    (New-Item -Type File \"$dir\\KeePass.config.xml\") | Out-Null",
+        "    $content = \"<?xml version=`\"1.0`\" encoding=`\"utf-8`\"?>",
+        "<Configuration xmlns:xsd=`\"http://www.w3.org/2001/XMLSchema`\" xmlns:xsi=`\"http://www.w3.org/2001/XMLSchema-instance`\">",
+	    "    <Application>",
+		"        <UseTransactedConfigWrites>false</UseTransactedConfigWrites>",
+	    "    </Application>",
+        "</Configuration>\"",
+        "    Out-File -InputObject $content -FilePath \"$dir\\KeePass.config.xml\"",
+        "}",
+        "if (Test-Path \"$persist_dir\\KeePass.config.xml\") {",
+        "    $config = New-Object System.Xml.XmlDocument
+$config.Load("a.xml")
+$node = $config.SelectSingleNode("//UseTransactedConfigWrites")
+if ($node) {
+    $node.InnerText = "false"
+} else {
+    $node = $config.SelectSingleNode("//FileOpening")
+    $newnode = $config.CreateElement("UseTransactedConfigWrites")
+    $newnode.InnerText = "false"
+    $node.ParentNode.InsertAfter($newnode, $node) | Out-Null
+}
+$settings = New-Object System.Xml.XmlWriterSettings
+$settings.Indent = $true
+$settings.IndentChars = "`t"
+$settings.Encoding = New-Object System.Text.UTF8Encoding($false)
+$writer = [System.Xml.XmlWriter]::Create("a.xml", $settings)
+$config.Save($writer)
+$writer.Dispose()",
         "}"
     ],
     "bin": "KeePass.exe",
