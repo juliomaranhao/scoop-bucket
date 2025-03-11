@@ -41,7 +41,7 @@
         "    </Application>",
         "</Configuration>\"",
         "    Out-File -InputObject $content -FilePath \"$dir\\KeePass.config.xml\"",
-        "}",
+        "}"
     ],
     "bin": "KeePass.exe",
     "shortcuts": [
