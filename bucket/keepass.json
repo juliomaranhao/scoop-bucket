@@ -40,7 +40,7 @@
         "        <UseTransactedConfigWrites>false</UseTransactedConfigWrites>",
         "    </Application>",
         "</Configuration>\"",
-        "    Out-File -InputObject $content -FilePath \"$dir\\KeePass.config.xml\"",
+        "    Out-File -InputObject $content -FilePath \"$dir\\KeePass.config.xml\" -Encoding ascii",
         "}"
     ],
     "bin": "KeePass.exe",
