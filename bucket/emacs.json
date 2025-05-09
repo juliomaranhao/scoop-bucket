@@ -35,7 +35,7 @@
         [
             "bin\\emacsclientw.exe",
             "Emacs Client",
-            "-c -n"
+            "-c -n --alternate-editor= "
         ]
     ],
     "checkver": "Emacs ([\\d.]+)",
