@@ -20,6 +20,36 @@
             "extract_dir": "rclone-v1.69.3-windows-arm64"
         }
     },
+    "pre_install": [
+        "$HOME = if ($env:HOME) {",
+        "    $env:HOME",
+        "} elseif ($env:USERPROFILE) {",
+        "    $env:USERPROFILE",
+        "} else {",
+        "    \"$env:HOMEDRIVE%\\$env:HOMEPATH\"",
+        "}",
+        "if (! Test-Path -PathType Container \"$HOME\\.config\") {",
+        "    New-Item -ItemType Directory \"$HOME\\.config\"",
+        "}",
+        "if (! Test-Path -PathType Container \"$HOME\\.config\\rclone\") {",
+        "    New-Item -ItemType Directory \"$HOME\\.config\\rclone\"",
+        "}",
+        "if (! Test-Path -PathType Leaf \"$HOME\\.config\\rclone\\rclone.conf\") {",
+        "    New-Item -ItemType File \"$HOME\\.config\\rclone\\rclone.conf\"",
+        "}",
+        "$AlienConf = if (Test-Path \"$env:APPDATA\\rclone\\rclone.conf\") {",
+        "    \"$env:APPDATA\\rclone\\rclone.conf\"",
+        "} elseif (Test-Path \"$env:XDG_CONFIG_HOME\\rclone\\rclone.conf\") {",
+        "    \"$env:XDG_CONFIG_HOME\\rclone\\rclone.conf\"",
+        "} elseif (Test-Path \"$tilde\\.rclone.conf\") {",
+        "    \"$HOME\\.rclone.conf\"",
+        "}",
+        "if ($AlienConf -and ($AlienConf -ne \"$HOME\\.config\\rclone\\rclone.conf\")) {",
+        "    Copy-Item $AlienConf \"$HOME\\.config\\rclone\\rclone.old.conf\"",
+        "    Remove-Item $AlienConf",
+        "    Write-Host \"Found old rclone config. Renamed to \"$HOME\\.config\\rclone\\rclone.old.conf\" -ForegroundColor Yellow",
+        "}"
+    ],
     "bin": "rclone.exe",
     "checkver": {
         "github": "https://github.com/rclone/rclone"
