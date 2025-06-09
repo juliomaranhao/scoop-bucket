@@ -47,7 +47,7 @@
         "if ($AlienConf -and ($AlienConf -ne \"$HOME\\.config\\rclone\\rclone.conf\")) {",
         "    Copy-Item $AlienConf \"$HOME\\.config\\rclone\\rclone.old.conf\"",
         "    Remove-Item $AlienConf",
-        "    Write-Host \"Found old rclone config. Renamed to \"$HOME\\.config\\rclone\\rclone.old.conf\" -ForegroundColor Yellow",
+        "    Write-Host \"Found old rclone config. Renamed to $HOME\\.config\\rclone\\rclone.old.conf\" -ForegroundColor Yellow",
         "}"
     ],
     "bin": "rclone.exe",
