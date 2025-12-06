@@ -14,7 +14,7 @@
       [
         "dotter.exe",
         "dotter",
-        "--global-config dotter/global.toml --pre-deploy dotter/pre_deploy.ps1 --post-deploy dotter/post_deploy.ps1 --pre-undeploy dotter/pre_undeploy.ps1 --post-undeploy dotter/post_undeploy.ps1"
+        "--global-config dotter/global.toml --pre-deploy dotter/pre_deploy.bat --post-deploy dotter/post_deploy.bat --pre-undeploy dotter/pre_undeploy.bat --post-undeploy dotter/post_undeploy.bat"
       ]
     ],
     "checkver": "github",
