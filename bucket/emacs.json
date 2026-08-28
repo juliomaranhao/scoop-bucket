@@ -24,8 +24,7 @@
         "bin\\emacs.exe",
         "bin\\emacsclientw.exe",
         "bin\\emacsclient.exe",
-        "bin\\etags.exe",
-        "bin\\ctags.exe"
+        "bin\\etags.exe"
     ],
     "shortcuts": [
         [
